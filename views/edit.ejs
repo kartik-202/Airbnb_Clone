@@ -1,0 +1,47 @@
+<%-layout("../boilerplate.ejs")%>
+<div class="row mt-3">
+    <div class="col-8 offset-3" >
+
+<body>
+    <h2>Edit the Listing</h2>
+    <form method="post" action="/listing/<%= Listing._id %>?_method=PUT" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">title</label>
+        <input type="text" name="listing[title]"  required value="<%=Listing.title%>">
+    </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">description</label>
+        <textarea type="text" name="listing[description]" required value="<%=Listing.description%>"><%=Listing.description%></textarea>
+    </div>
+
+    <div class="mb-3">
+    <p>Original Image</p>
+    <br>
+    <img src="<%= replacedImage %>" alt="">
+</div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">image</label>
+        <input type="file" name="listing[image]" required>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">price</label>
+        <input type="number" name="listing[price]" required value="<%=Listing.price%>">
+    </div>
+        <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">country</label>
+        <input type="text" name="listing[country]" required value="<%=Listing.country%>">
+    </div>
+</div>
+        <div class="mb-3">
+            <label for="location" class="form-label">location</label>
+        <input type="text" name="listing[location]" required value="<%=Listing.location%>">
+    </div>
+        
+        <button class="btn btn-dark edit-btn mt-3">Edit</button>
+    </form>
+    <br>
+</body>
+</div>
+</div>
